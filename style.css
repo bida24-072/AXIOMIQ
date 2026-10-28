@@ -327,3 +327,82 @@ footer .made-in { color: var(--cyan); font-family: var(--font-display); letter-s
     box-shadow: var(--glow);
     transform: translateY(-3px);
 }
+/* --- PULATRACK APP SHOWCASE --- */
+.showcase-container {
+    margin-top: 80px;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.showcase-scroll {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 40px 20px;
+    /* Hides the scrollbar for a cleaner look */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.showcase-scroll::-webkit-scrollbar { display: none; }
+
+.phone-mockup {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 620px;
+    border-radius: 40px;
+    border: 8px solid #1A1A22;
+    background: #000;
+    position: relative;
+    scroll-snap-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8), 
+                0 0 30px rgba(0, 168, 255, 0.1);
+    transition: all 0.4s ease;
+    animation: floatPhone 6s ease-in-out infinite;
+}
+
+/* Stagger the floating animation for each phone */
+.phone-mockup:nth-child(2n) { animation-delay: 1s; }
+.phone-mockup:nth-child(3n) { animation-delay: 2s; }
+.phone-mockup:nth-child(4n) { animation-delay: 0.5s; }
+.phone-mockup:nth-child(5n) { animation-delay: 1.5s; }
+
+@keyframes floatPhone {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.phone-mockup:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.9), 
+                0 0 40px rgba(0, 245, 255, 0.4);
+    transform: scale(1.02) !important;
+    animation-play-state: paused;
+}
+
+.phone-mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 32px;
+    display: block;
+}
+
+/* Gradient fades on the sides of the scroll to show there's more */
+.showcase-fade-left,
+.showcase-fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    z-index: 10;
+    pointer-events: none;
+}
+.showcase-fade-left {
+    left: 0;
+    background: linear-gradient(to right, var(--bg), transparent);
+}
+.showcase-fade-right {
+    right: 0;
+    background: linear-gradient(to left, var(--bg), transparent);
+}
