@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body style="padding-top: 100px;">
+<body style="padding-top: 100px; overflow-x: hidden;">
 
     <header>
         <a href="index.html" class="logo-wrap">
@@ -17,49 +17,88 @@
             </svg>
             AXIOMIQ
         </a>
-              <nav class="nav-links">
+        <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
-            <a href="pulatrack.html">PulaTrack</a>
+            <a href="pulatrack.html" class="active">PulaTrack</a>
             <a href="team.html">Leadership</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <section>
-        <div style="text-align: center; margin-bottom: 60px;">
+    <section style="padding-bottom: 0;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <!-- PulaTrack App Logo -->
+            <div class="reveal" style="display: flex; justify-content: center; margin-bottom: 20px;">
+                <img src="images/pulatrack-logo.png" alt="PulaTrack App Icon" style="width: 100px; height: 100px; border-radius: 24px; box-shadow: 0 0 40px rgba(0, 168, 255, 0.3); border: 1px solid rgba(0, 168, 255, 0.4);">
+            </div>
+            
             <h2 class="section-title reveal" style="margin-bottom: 20px;">MEET <span>PULATRACK</span></h2>
             <p class="reveal" style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Smart expense tracking for BW SMEs. Biometrics + OTP secured. Bank-ready reports.</p>
         </div>
 
         <div class="split">
-            <div class="phone-mockup reveal">
-                <div class="phone-screen">
-                    <div style="color: #fff; font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 20px;">PulaTrack</div>
-                    <div style="background: rgba(0,168,255,0.1); border: 1px solid rgba(0,168,255,0.3); border-radius: 8px; padding: 15px; margin-bottom: 15px;">
-                        <div style="font-size: 0.8rem; color: #888;">Total Balance</div>
-                        <div style="font-size: 1.8rem; font-family: var(--font-display); color: #00F5FF;">P 24,500.00</div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; margin-bottom: 10px; display: flex; justify-content: space-between;">
-                        <span style="color: #fff;">Office Rent</span>
-                        <span style="color: #FF2E4D;">- P 5,000</span>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between;">
-                        <span style="color: #fff;">Client Payment</span>
-                        <span style="color: #22C55E;">+ P 12,000</span>
-                    </div>
+            <!-- Left Side: Main App Screenshot -->
+            <div class="reveal" style="display: flex; justify-content: center;">
+                <div class="phone-mockup" style="width: 320px; height: 660px; animation: none; box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 50px rgba(0, 245, 255, 0.2);">
+                    <!-- Your Home Screenshot -->
+                    <img src="images/home.png" alt="PulaTrack Dashboard">
                 </div>
             </div>
-            <div class="reveal">
-                <h3 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 20px; color: var(--cyan);">Why use PulaTrack?</h3>
+            
+            <!-- Right Side: Features & Link -->
+            <div class="reveal" style="transition-delay: 0.2s;">
+                <h3 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 20px; color: var(--cyan);">Take Control of Your Pula.</h3>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px;">PulaTrack is designed specifically for the Botswana market. Whether you are running a spaza shop or a consulting firm, track every thebe.</p>
+                
                 <ul style="color: var(--text-muted); font-size: 1.1rem; line-height: 2;">
                     <li>✓ <strong>Bank-Ready Reports:</strong> Export PDF/CSV ledgers for loans and grants.</li>
                     <li>✓ <strong>Secure:</strong> Protected by biometrics and multi-factor OTP.</li>
                     <li>✓ <strong>SME Focused:</strong> Track petty cash, invoices, and payroll in Pula.</li>
                     <li>✓ <strong>Offline First:</strong> Works without internet, syncs when back online.</li>
                 </ul>
+                
                 <div style="margin-top: 40px;">
-                    <a href="contact.html" class="btn btn-primary">Get Early Access</a>
+                    <!-- Link to live app -->
+                    <a href="https://pula-track-smart.base44.app/" target="_blank" class="btn btn-primary" style="box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);">Launch App</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CINEMATIC APP SHOWCASE SCROLL -->
+    <section class="showcase-container">
+        <div style="text-align: center; margin-bottom: 20px;" class="reveal">
+            <h2 class="section-title" style="margin-bottom: 10px;">INSIDE THE <span>APP</span></h2>
+            <p style="color: var(--text-muted);">Swipe to explore the features.</p>
+        </div>
+
+        <div style="position: relative; max-width: 100%; overflow: hidden;">
+            <!-- Gradient fades on the edges -->
+            <div class="showcase-fade-left"></div>
+            <div class="showcase-fade-right"></div>
+
+            <!-- Scrollable Phone Container -->
+            <div class="showcase-scroll">
+                <!-- Phone 1 -->
+                <div class="phone-mockup">
+                    <img src="images/home.png" alt="PulaTrack Home">
+                </div>
+                <!-- Phone 2 -->
+                <div class="phone-mockup">
+                    <img src="images/activity.png" alt="PulaTrack Activity">
+                </div>
+                <!-- Phone 3 -->
+                <div class="phone-mockup">
+                    <img src="images/budget.png" alt="PulaTrack Budget">
+                </div>
+                <!-- Phone 4 -->
+                <div class="phone-mockup">
+                    <img src="images/ai-coach.png" alt="PulaTrack AI Coach">
+                </div>
+                <!-- Phone 5 -->
+                <div class="phone-mockup">
+                    <img src="images/settings.png" alt="PulaTrack Settings">
                 </div>
             </div>
         </div>
@@ -71,5 +110,35 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Script to enable click-and-drag scrolling for desktop users -->
+    <script>
+        const slider = document.querySelector('.showcase-scroll');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed multiplier
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
 </body>
 </html>
