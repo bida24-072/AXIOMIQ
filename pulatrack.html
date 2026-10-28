@@ -38,15 +38,7 @@
         </div>
 
         <div class="split">
-            <!-- Left Side: Main App Screenshot -->
-            <div class="reveal" style="display: flex; justify-content: center;">
-                <div class="phone-mockup" style="width: 320px; height: 660px; animation: none; box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 50px rgba(0, 245, 255, 0.2);">
-                    <!-- Your Home Screenshot -->
-                    <img src="images/home.png" alt="PulaTrack Dashboard">
-                </div>
-            </div>
-            
-            <!-- Right Side: Features & Link -->
+            <!-- Left Side: Features -->
             <div class="reveal" style="transition-delay: 0.2s;">
                 <h3 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 20px; color: var(--cyan);">Take Control of Your Pula.</h3>
                 <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px;">PulaTrack is designed specifically for the Botswana market. Whether you are running a spaza shop or a consulting firm, track every thebe.</p>
@@ -59,85 +51,148 @@
                 </ul>
                 
                 <div style="margin-top: 40px;">
-                    <!-- Link to live app -->
-                    <a href="https://pula-track-smart.base44.app/" target="_blank" class="btn btn-primary" style="box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);">Launch App</a>
+                    <a href="https://pula-track-smart.base44.app/" target="_blank" class="btn btn-primary" style="box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);">Launch Live App</a>
                 </div>
+            </div>
+
+            <!-- Right Side: Mini Preview -->
+            <div class="reveal" style="display: flex; justify-content: center; align-items: center;">
+                 <img src="images/ai-coach.png" alt="AI Coach" style="width: 280px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);">
             </div>
         </div>
     </section>
 
-    <!-- CINEMATIC APP SHOWCASE SCROLL -->
-    <section class="showcase-container">
-        <div style="text-align: center; margin-bottom: 20px;" class="reveal">
-            <h2 class="section-title" style="margin-bottom: 10px;">INSIDE THE <span>APP</span></h2>
-            <p style="color: var(--text-muted);">Swipe to explore the features.</p>
+    <!-- 3D CINEMATIC CAROUSEL -->
+    <section class="showcase-3d-container">
+        <div class="reveal">
+            <h2 class="section-title" style="margin-bottom: 10px;">EXPERIENCE THE <span>APP</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Click a phone to explore, or let it auto-play.</p>
         </div>
 
-        <div style="position: relative; max-width: 100%; overflow: hidden;">
-            <!-- Gradient fades on the edges -->
-            <div class="showcase-fade-left"></div>
-            <div class="showcase-fade-right"></div>
-
-            <!-- Scrollable Phone Container -->
-            <div class="showcase-scroll">
-                <!-- Phone 1 -->
-                <div class="phone-mockup">
-                    <img src="images/home.png" alt="PulaTrack Home">
-                </div>
-                <!-- Phone 2 -->
-                <div class="phone-mockup">
-                    <img src="images/activity.png" alt="PulaTrack Activity">
-                </div>
-                <!-- Phone 3 -->
-                <div class="phone-mockup">
-                    <img src="images/budget.png" alt="PulaTrack Budget">
-                </div>
-                <!-- Phone 4 -->
-                <div class="phone-mockup">
-                    <img src="images/ai-coach.png" alt="PulaTrack AI Coach">
-                </div>
-                <!-- Phone 5 -->
-                <div class="phone-mockup">
-                    <img src="images/settings.png" alt="PulaTrack Settings">
-                </div>
+        <div class="showcase-stage" id="carouselStage">
+            <!-- Phones -->
+            <div class="showcase-phone active" data-index="0">
+                <img src="images/home.png" alt="Home">
             </div>
+            <div class="showcase-phone next" data-index="1">
+                <img src="images/activity.png" alt="Activity">
+            </div>
+            <div class="showcase-phone hidden" data-index="2">
+                <img src="images/budget.png" alt="Budget">
+            </div>
+            <div class="showcase-phone hidden" data-index="3">
+                <img src="images/ai-coach.png" alt="AI Coach">
+            </div>
+            <div class="showcase-phone hidden" data-index="4">
+                <img src="images/settings.png" alt="Settings">
+            </div>
+        </div>
+
+        <!-- Dynamic Text Area -->
+        <div class="showcase-text-content">
+            <h3 id="slideTitle">Dashboard Overview</h3>
+            <p id="slideDesc">Get a quick snapshot of your Net Balance, Income, Expenses, and recent activity all in one place.</p>
         </div>
     </section>
 
-    <footer>
+    <footer style="margin-top: 80px;">
         <p>Contact: +267 000 0000 | info@axiomiq.co.bw | www.axiomiq.co.bw</p>
         <div class="made-in">MADE IN BOTSWANA</div>
     </footer>
 
     <script src="script.js"></script>
     
-    <!-- Script to enable click-and-drag scrolling for desktop users -->
+    <!-- 3D CAROUSEL LOGIC -->
     <script>
-        const slider = document.querySelector('.showcase-scroll');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        const phones = document.querySelectorAll('.showcase-phone');
+        const titleEl = document.getElementById('slideTitle');
+        const descEl = document.getElementById('slideDesc');
+        const stage = document.getElementById('carouselStage');
+        let currentIndex = 0;
+        let autoPlayInterval;
 
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.style.cursor = 'grabbing';
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
+        // Data for each slide
+        const slideData = [
+            { title: "Dashboard Overview", desc: "Get a quick snapshot of your Net Balance, Income, Expenses, and recent activity all in one place." },
+            { title: "Detailed Activity Log", desc: "Search, filter, and export (CSV) every single transaction. Never lose track of a single thebe." },
+            { title: "Smart Budgeting", desc: "Set monthly limits and watch the 3-month projection forecast your financial future." },
+            { title: "AI Financial Coach", desc: "Stuck? Ask the built-in AI assistant how to save more or where you are overspending." },
+            { title: "Custom Settings", desc: "Manage your profile, set income/savings goals, and toggle dark mode preferences." }
+        ];
+
+        function updateCarousel() {
+            phones.forEach((phone, index) => {
+                // Reset classes
+                phone.className = 'showcase-phone';
+                
+                // Calculate position relative to current index
+                if (index === currentIndex) {
+                    phone.classList.add('active');
+                } else if (index === (currentIndex - 1 + phones.length) % phones.length) {
+                    phone.classList.add('prev');
+                } else if (index === (currentIndex + 1) % phones.length) {
+                    phone.classList.add('next');
+                } else {
+                    phone.classList.add('hidden');
+                }
+
+                // Add click event to jump to a phone
+                phone.onclick = () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    resetAutoPlay();
+                };
+            });
+
+            // Fade text effect
+            titleEl.style.opacity = 0;
+            descEl.style.opacity = 0;
+            setTimeout(() => {
+                titleEl.textContent = slideData[currentIndex].title;
+                descEl.textContent = slideData[currentIndex].desc;
+                titleEl.style.opacity = 1;
+                descEl.style.opacity = 1;
+            }, 300);
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % phones.length;
+                updateCarousel();
+            }, 4000); // Changes every 4 seconds
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Initialize
+        updateCarousel();
+        startAutoPlay();
+
+        // Pause auto-play on hover, resume on leave
+        stage.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        stage.addEventListener('mouseleave', startAutoPlay);
+
+        // 3D Mouse Tilt Effect on the active phone
+        stage.addEventListener('mousemove', (e) => {
+            const activePhone = document.querySelector('.showcase-phone.active');
+            if(!activePhone) return;
+            
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            
+            // Apply tilt but keep it centered and scaled
+            activePhone.style.transform = `translateX(0) scale(1) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
         });
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-        });
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-        });
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Scroll speed multiplier
-            slider.scrollLeft = scrollLeft - walk;
+
+        // Reset tilt when mouse leaves
+        stage.addEventListener('mouseleave', () => {
+            const activePhone = document.querySelector('.showcase-phone.active');
+            if(activePhone) {
+                activePhone.style.transform = `translateX(0) scale(1) rotateY(0deg) rotateX(0deg)`;
+            }
         });
     </script>
 </body>
