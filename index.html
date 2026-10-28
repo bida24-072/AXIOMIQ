@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIOMIQ | Moving Business Forward</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loader">
+        <svg class="loader-hex" viewBox="0 0 100 100">
+            <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" />
+        </svg>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <a href="index.html" class="logo-wrap">
+            <svg class="logo-svg" viewBox="0 0 100 100">
+                <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="#00F5FF" stroke-width="4"/>
+                <circle cx="50" cy="50" r="8" fill="#00A8FF" />
+            </svg>
+            AXIOMIQ
+        </a>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="services.html">Services</a>
+            <a href="pulatrack.html">PulaTrack</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <svg class="hero-hex" viewBox="0 0 100 100">
+                <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="#00F5FF" stroke-width="1.5"/>
+                <path d="M50,20 L80,35 L80,65 L50,80 L20,65 L20,35 Z" fill="none" stroke="#00A8FF" stroke-width="1"/>
+                <circle cx="50" cy="50" r="5" fill="#00F5FF" />
+            </svg>
+            <h1>AXIOMIQ</h1>
+            <p class="subtext">Advanced X Intelligence Operations Model Intelligence Quotient</p>
+            <div class="typing-wrap"><span id="typing"></span><span class="cursor"></span></div>
+            <div class="hero-btns">
+                <a href="services.html" class="btn btn-primary">Explore Services</a>
+                <a href="pulatrack.html" class="btn btn-outline">View PulaTrack</a>
+            </div>
+        </div>
+        <div class="hero-wave"></div>
+    </section>
+
+    <!-- ABOUT / STATS -->
+    <section id="about">
+        <h2 class="section-title reveal">We build <span>all digital products</span> in Botswana</h2>
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-num" data-target="100">0</div>
+                <div class="stat-label">Logos Designed</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-num" data-target="50">0</div>
+                <div class="stat-label">Websites Built</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-num" data-target="10">0</div>
+                <div class="stat-label">Business Systems</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-num" data-target="1">0</div>
+                <div class="stat-label">Fintech (PulaTrack)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PULATRACK TEASER -->
+    <section style="background: radial-gradient(circle at 100% 50%, rgba(0,168,255,0.05) 0%, transparent 50%);">
+        <div class="split">
+            <div class="phone-mockup reveal">
+                <div class="phone-screen">
+                    <div style="color: #fff; font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 20px;">PulaTrack</div>
+                    <div style="background: rgba(0,168,255,0.1); border: 1px solid rgba(0,168,255,0.3); border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                        <div style="font-size: 0.8rem; color: #888;">Total Balance</div>
+                        <div style="font-size: 1.8rem; font-family: var(--font-display); color: #00F5FF;">P 24,500.00</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; margin-bottom: 10px; display: flex; justify-content: space-between;">
+                        <span style="color: #fff;">Office Rent</span>
+                        <span style="color: #FF2E4D;">- P 5,000</span>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between;">
+                        <span style="color: #fff;">Client Payment</span>
+                        <span style="color: #22C55E;">+ P 12,000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pulatrack-text reveal">
+                <h2>Our Flagship Product<br><span style="color: var(--cyan);">PulaTrack</span></h2>
+                <p>Smart expense tracking built specifically for Botswana SMEs. Biometrics + OTP secured. Generate bank-ready reports in seconds.</p>
+                <a href="pulatrack.html" class="btn btn-primary">Discover PulaTrack</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Contact: +267 000 0000 | info@axiomiq.co.bw | www.axiomiq.co.bw</p>
+        <div class="made-in">MADE IN BOTSWANA</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
