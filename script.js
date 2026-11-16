@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2200);
 
     // 2. Typing Effect
-    const text = "Moving Business Forward...";
+    const text = "Intelligence That Moves You Forward...";
     const typingTarget = document.getElementById("typing");
     let i = 0;
     function typeWriter() {
